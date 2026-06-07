@@ -1,13 +1,14 @@
 import React from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
+  hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.15 + 0.2,
+      delay: i * 0.14 + 0.2,
       duration: 1,
       ease: [0.22, 1, 0.36, 1],
     },
@@ -16,108 +17,93 @@ const fadeUp = {
 
 export default function Hero() {
   return (
-    <section
-      id="inicio"
-      className="relative flex items-center justify-center min-h-screen overflow-hidden bg-charcoal"
-    >
-      {/* Ambient orbs */}
-      <div className="absolute top-[18%] left-[8%] w-[520px] h-[520px] rounded-full opacity-[0.09] bg-gold blur-[130px] animate-orb-1 pointer-events-none" />
-      <div className="absolute bottom-[12%] right-[6%] w-[420px] h-[420px] rounded-full opacity-[0.07] bg-gold blur-[110px] animate-orb-2 pointer-events-none" />
+    <section id="inicio" className="relative flex min-h-screen bg-charcoal overflow-hidden">
 
-      {/* Dot grid */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          opacity: 0.035,
-          backgroundImage: 'radial-gradient(circle, #B89060 1px, transparent 1px)',
-          backgroundSize: '44px 44px',
-        }}
-      />
+      {/* LEFT — Content */}
+      <div className="relative z-10 w-full lg:w-[54%] flex flex-col justify-center px-8 md:px-14 lg:px-20 pt-28 pb-20">
 
-      {/* Thin horizontal gold line (decorative) */}
-      <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/8 to-transparent pointer-events-none" />
+        {/* Ambient orb */}
+        <div className="absolute top-1/4 -left-32 w-[400px] h-[400px] rounded-full opacity-[0.08] bg-gold blur-[110px] animate-orb-1 pointer-events-none" />
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-[900px] mx-auto pt-20">
+        {/* Dot grid */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            opacity: 0.03,
+            backgroundImage: 'radial-gradient(circle, #B89060 1px, transparent 1px)',
+            backgroundSize: '44px 44px',
+          }}
+        />
 
         {/* Label */}
         <motion.div
-          custom={0}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="flex items-center justify-center gap-5 mb-10"
+          custom={0} variants={fadeUp} initial="hidden" animate="visible"
+          className="flex items-center gap-4 mb-10"
         >
           <span className="h-px w-10 bg-gold/50" />
           <span className="font-inter text-gold text-[10px] tracking-[0.38em] uppercase">
-            Medicina Estética Avanzada
+            Medicina Estética & Antienvejecimiento
           </span>
-          <span className="h-px w-10 bg-gold/50" />
         </motion.div>
 
-        {/* Main heading */}
+        {/* Headline */}
         <motion.h1
-          custom={1}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
+          custom={1} variants={fadeUp} initial="hidden" animate="visible"
           className="font-playfair text-ivory font-normal leading-[1.04] mb-6"
-          style={{ fontSize: 'clamp(50px, 8.5vw, 94px)' }}
+          style={{ fontSize: 'clamp(42px, 6vw, 82px)' }}
         >
-          Arte y Ciencia
-          <br />
+          Arte y Ciencia<br />
           <em className="italic text-gold font-normal">en Tu Piel</em>
         </motion.h1>
 
-        {/* Subtitle */}
+        {/* Tagline */}
         <motion.p
-          custom={2}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="font-inter text-ivory/45 font-light leading-relaxed max-w-[460px] mx-auto mb-11"
-          style={{ fontSize: 'clamp(14px, 1.8vw, 17px)' }}
+          custom={2} variants={fadeUp} initial="hidden" animate="visible"
+          className="font-cormorant italic text-ivory/50 leading-relaxed mb-10"
+          style={{ fontSize: 'clamp(16px, 2vw, 22px)' }}
         >
-          Dra. Zharick Tobar — Procedimientos de precisión con resultados completamente naturales. Cali, Colombia.
+          "Cada procedimiento, un ritual de precisión y belleza."
+        </motion.p>
+
+        <motion.p
+          custom={3} variants={fadeUp} initial="hidden" animate="visible"
+          className="font-inter text-ivory/40 text-sm font-light leading-relaxed max-w-md mb-10"
+        >
+          Dra. Zharick Tobar — Especialista en medicina estética avanzada.
+          Resultados completamente naturales. Cali, Colombia.
         </motion.p>
 
         {/* CTAs */}
         <motion.div
-          custom={3}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col sm:flex-row items-center justify-center gap-3"
+          custom={4} variants={fadeUp} initial="hidden" animate="visible"
+          className="flex flex-col sm:flex-row gap-3 mb-14"
         >
-          <a
-            href="#servicios"
-            className="px-8 py-[14px] border border-ivory/20 text-ivory/70 font-inter text-[10px] tracking-[0.22em] uppercase hover:border-gold hover:text-gold transition-all duration-400 min-w-[200px] text-center"
-          >
-            Ver Servicios
-          </a>
           <a
             href="https://wa.me/573174538636"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-[14px] bg-gold text-charcoal font-inter text-[10px] tracking-[0.22em] uppercase hover:bg-gold-light transition-all duration-300 min-w-[200px] text-center font-medium"
+            className="px-8 py-4 bg-gold text-charcoal font-inter text-[10px] tracking-[0.22em] uppercase font-medium hover:bg-gold-light transition-all duration-300 text-center"
           >
             Agendar Cita
+          </a>
+          <a
+            href="#servicios"
+            className="px-8 py-4 border border-ivory/18 text-ivory/60 font-inter text-[10px] tracking-[0.22em] uppercase hover:border-gold hover:text-gold transition-all duration-300 text-center"
+          >
+            Ver Servicios
           </a>
         </motion.div>
 
         {/* Service chips */}
         <motion.div
-          custom={4}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-wrap items-center justify-center gap-2 mt-12"
+          custom={5} variants={fadeUp} initial="hidden" animate="visible"
+          className="flex flex-wrap gap-2"
         >
           {['Rellenos', 'Botox', 'Bioestimulación', 'Hidratación', 'Rinomodelación'].map((chip) => (
             <a
               key={chip}
               href="#servicios"
-              className="px-4 py-[6px] border border-ivory/12 text-ivory/35 font-inter text-[9px] tracking-[0.18em] uppercase rounded-full hover:border-gold/40 hover:text-gold/70 transition-all duration-300"
+              className="px-4 py-[5px] border border-ivory/10 text-ivory/28 font-inter text-[9px] tracking-[0.2em] uppercase rounded-full hover:border-gold/40 hover:text-gold/70 transition-all duration-300"
             >
               {chip}
             </a>
@@ -125,17 +111,52 @@ export default function Hero() {
         </motion.div>
       </div>
 
+      {/* RIGHT — Doctor photo */}
+      <motion.div
+        className="hidden lg:block lg:w-[46%] relative"
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {/* Photo */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/doctor.png"
+            alt="Dra. Zharick Tobar — Medicina Estética Cali"
+            fill
+            priority
+            className="object-cover object-top"
+            style={{ filter: 'sepia(12%) saturate(90%) brightness(0.88)' }}
+          />
+        </div>
+
+        {/* Left gradient blend */}
+        <div className="absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-charcoal to-transparent z-10" />
+
+        {/* Bottom gradient */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-charcoal to-transparent z-10" />
+
+        {/* Gold accent line */}
+        <div className="absolute left-8 top-[15%] bottom-[15%] w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent z-20" />
+
+        {/* Name overlay */}
+        <div className="absolute bottom-10 left-12 z-20">
+          <p className="font-playfair text-ivory/90 text-xl mb-0.5">Dra. Zharick Tobar</p>
+          <p className="font-inter text-gold text-[9px] tracking-[0.3em] uppercase">Medicina Estética · Cali</p>
+        </div>
+      </motion.div>
+
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.8, duration: 0.8 }}
-        className="absolute bottom-9 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        transition={{ delay: 2, duration: 0.8 }}
+        className="absolute bottom-8 left-8 md:left-14 lg:left-20 flex items-center gap-3 z-20"
       >
-        <span className="font-inter text-ivory/20 text-[9px] tracking-[0.28em] uppercase">Scroll</span>
-        <div className="w-px h-10 overflow-hidden relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-gold/60 to-transparent animate-scroll-line" />
+        <div className="w-8 h-px overflow-hidden relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-gold/60 to-transparent animate-scroll-line" />
         </div>
+        <span className="font-inter text-ivory/20 text-[9px] tracking-[0.3em] uppercase">Scroll</span>
       </motion.div>
     </section>
   )
