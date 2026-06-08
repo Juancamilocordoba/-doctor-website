@@ -48,3 +48,14 @@ input:-webkit-autofill:focus {
   -webkit-text-fill-color: #F8F5F0;
   transition: background-color 5000s ease-in-out 0s;
 }
+
+/* ── Horizon Services animations ───────────────────────── */
+@keyframes hzFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes hzSlideUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
