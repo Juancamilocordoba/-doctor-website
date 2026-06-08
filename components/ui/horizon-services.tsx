@@ -10,31 +10,31 @@ const GOLD   = '#B89060'
 const IVORY  = '#F8F5F0'
 const DARK   = '#0a0906'
 
-// ─── Section data ─────────────────────────────────────────────────────────
+// ─── Section data — procedimientos reales + rangos de precio ─────────────
 export const HORIZON_SECTIONS = [
   {
     category: 'Rellenos & Perfilado',
     title: 'RELLENOS',
-    line1: 'Armonía y proporción',
-    line2: 'en cada detalle del rostro',
+    line1: 'Labios · Mentón · Ojeras · Nariz',
+    line2: 'Ácido Hialurónico · Desde $1.200.000',
   },
   {
     category: 'Neuromoduladores',
-    title: 'NEURO',
-    line1: 'Movimiento natural,',
-    line2: 'expresión auténtica',
+    title: 'BOTOX',
+    line1: 'Toxina Botulínica · Bruxismo',
+    line2: 'Expresión natural · Desde $400.000',
   },
   {
     category: 'Bioestimulación',
-    title: 'BIOESTIMULACIÓN',
-    line1: 'Tu piel, renovada',
-    line2: 'desde adentro',
+    title: 'COLÁGENO',
+    line1: 'Radiesse · Sculptra · Regeneración',
+    line2: 'Firmeza y volumen · Desde $2.600.000',
   },
   {
     category: 'Hidratación & Regeneración',
     title: 'HIDRATACIÓN',
-    line1: 'Profundidad e intensidad',
-    line2: 'para tu piel',
+    line1: 'NCTF · Polinucleótidos · PDRN',
+    line2: 'Luminosidad profunda · Desde $650.000',
   },
 ]
 
