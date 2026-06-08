@@ -63,7 +63,7 @@ const categories = [
     description: 'Ácido hialurónico de última generación para perfilar, definir y armonizar los rasgos del rostro con resultados absolutamente naturales.',
     services: [
       { name: 'Aumento de Labios',    tech: 'Ácido Hialurónico',     price: '$1.200.000',     desc: 'Volumen y definición natural para tus labios. Resultados inmediatos y duraderos.',                                              image: '/images/antes-despues-labios-1.jpg.jpeg' },
-      { name: 'Proyección de Mentón', tech: 'Relleno con AH',        price: '$1.200.000',     desc: 'Perfilado de mentón sin cirugía para un rostro más armonioso y proporcionado.',                                               image: '/images/antes-despues-menton-1.jpg.png' },
+      { name: 'Proyección de Mentón', tech: 'Relleno con AH',        price: '$1.200.000',     desc: 'Perfilado de mentón sin cirugía para un rostro más armonioso y proporcionado.',                                               image: '/images/antes-despues-menton-1.jpg.png',    video: '/images/antes-despues-menton-2.jp.mp4' },
       { name: 'Relleno de Ojeras',    tech: 'Ácido Hialurónico',     price: '$1.200.000',     desc: 'Revitaliza la mirada. Trata ojeras y surcos con ácido hialurónico de alta precisión.',                                        image: 'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=600&auto=format&fit=crop&q=80' },
       { name: 'Rinomodelación',       tech: 'Sin cirugía',           price: '$1.200.000',     desc: 'Corrección estética de la nariz con rellenos. Sin quirófano, sin recuperación.',                                             image: '/images/antes-despues-rinomodelacion-1.jpg.png' },
     ],
@@ -74,7 +74,7 @@ const categories = [
     tagline: 'Movimiento natural, expresión auténtica',
     description: 'Toxina botulínica aplicada con precisión para suavizar líneas de expresión manteniendo la naturalidad y autenticidad de tu rostro.',
     services: [
-      { name: 'Toxina Botulínica',    tech: 'Tercio superior · Zona única', price: 'Desde $400.000', desc: 'Suaviza líneas de expresión preservando la naturalidad. Efecto preventivo y correctivo.',                                image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&auto=format&fit=crop&q=80' },
+      { name: 'Toxina Botulínica',    tech: 'Tercio superior · Zona única', price: 'Desde $400.000', desc: 'Suaviza líneas de expresión preservando la naturalidad. Efecto preventivo y correctivo.',                                image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&auto=format&fit=crop&q=80', video: '/images/antes-despues-toxinabotulinica-2.jpg.mp4' },
       { name: 'Toxina para Bruxismo', tech: 'Relajación mandibular',        price: '$890.000',       desc: 'Relaja la mandíbula y define el óvalo facial. Sin dolor, efecto inmediato.',                                           image: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&auto=format&fit=crop&q=80' },
     ],
   },
@@ -99,11 +99,20 @@ const categories = [
   },
 ]
 
-type Service = typeof categories[0]['services'][0]
+// ─── Service type ──────────────────────────────────────────────────────────
+type Service = {
+  name: string
+  tech: string
+  price: string
+  desc: string
+  image: string
+  video?: string   // optional hover-to-play before/after video
+}
 
 // ─── 3-D tilt card ─────────────────────────────────────────────────────────
 function ServiceCard({ service, index }: { service: Service; index: number }) {
-  const ref = useRef<HTMLDivElement>(null)
+  const ref      = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
   const x = useMotionValue(0)
   const y = useMotionValue(0)
   const xS = useSpring(x, { stiffness: 300, damping: 30 })
@@ -119,7 +128,18 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
     x.set((e.clientX - rect.left) / rect.width - 0.5)
     y.set((e.clientY - rect.top)  / rect.height - 0.5)
   }
-  const onLeave = () => { x.set(0); y.set(0) }
+  const onEnter = () => {
+    if (service.video && videoRef.current) {
+      videoRef.current.play().catch(() => {})
+    }
+  }
+  const onLeave = () => {
+    x.set(0); y.set(0)
+    if (service.video && videoRef.current) {
+      videoRef.current.pause()
+      videoRef.current.currentTime = 0
+    }
+  }
 
   return (
     <motion.div
@@ -136,6 +156,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         whileHover={{ scale: 1.02 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         onMouseMove={onMove}
+        onMouseEnter={onEnter}
         onMouseLeave={onLeave}
         className="bg-ivory border border-stone hover:border-gold/50 transition-colors duration-300 overflow-hidden flex flex-col h-full relative cursor-pointer"
       >
@@ -145,10 +166,46 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
           style={{ background: `radial-gradient(circle at ${glareX} ${glareY}, rgba(184,144,96,0.12) 0%, transparent 60%)` }}
         />
 
-        {/* Image */}
+        {/* Image / Video area */}
         <div className="relative overflow-hidden flex-shrink-0" style={{ aspectRatio: '16/10', transform: 'translateZ(20px)' }}>
-          <Image src={service.image} alt={service.name} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 to-transparent" />
+
+          {/* Static image — fades out on hover when video is available */}
+          {service.image.startsWith('/') ? (
+            <Image
+              src={service.image} alt={service.name} fill
+              className={`object-cover transition-all duration-700 ${service.video ? 'group-hover:opacity-0' : 'group-hover:scale-105'}`}
+            />
+          ) : (
+            <img
+              src={service.image} alt={service.name}
+              className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${service.video ? 'group-hover:opacity-0' : 'group-hover:scale-105'}`}
+            />
+          )}
+
+          {/* Hover-to-play video (only on cards with video field) */}
+          {service.video && (
+            <video
+              ref={videoRef}
+              muted loop playsInline
+              className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+            >
+              <source src={service.video} type="video/mp4" />
+            </video>
+          )}
+
+          {/* Play-hint badge — visible at rest, hidden on hover */}
+          {service.video && (
+            <div className="absolute inset-0 flex items-end justify-end p-3 z-10 pointer-events-none group-hover:opacity-0 transition-opacity duration-400">
+              <div className="flex items-center gap-1.5 px-2.5 py-1.5 bg-charcoal/75 border border-gold/30">
+                <svg width="7" height="8" viewBox="0 0 7 8" fill="currentColor" className="text-gold">
+                  <path d="M0 0l7 4-7 4V0z"/>
+                </svg>
+                <span className="font-inter text-gold text-[7.5px] tracking-[0.2em] uppercase">Ver resultado</span>
+              </div>
+            </div>
+          )}
+
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 to-transparent z-[5]" />
           <div className="absolute top-3 left-3 z-10">
             <span className="font-inter text-[8px] tracking-[0.25em] uppercase px-2.5 py-1 bg-gold/90 text-charcoal">
               {service.tech}
