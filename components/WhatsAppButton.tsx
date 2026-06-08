@@ -20,7 +20,6 @@ export default function WhatsAppButton() {
           exit={{ opacity: 0, y: 20, scale: 0.85 }}
           transition={{ type: 'spring', stiffness: 280, damping: 22 }}
         >
-          {/* Tooltip label */}
           <AnimatePresence>
             {hovered && (
               <motion.span
@@ -34,8 +33,6 @@ export default function WhatsAppButton() {
               </motion.span>
             )}
           </AnimatePresence>
-
-          {/* Button */}
           <a
             href="https://wa.me/573174538636"
             target="_blank"

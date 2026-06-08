@@ -35,8 +35,8 @@ export default function Home() {
       <main>
         <Hero />
         <Philosophy />
-        <Services />
         <Gallery />
+        <Services />
         <Videos />
         <Testimonials />
         <Booking />

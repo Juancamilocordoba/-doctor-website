@@ -30,7 +30,6 @@ export default function Philosophy() {
                 className="object-cover object-top"
                 style={{ filter: 'sepia(10%) saturate(92%) brightness(0.9)' }}
               />
-              {/* Gold accent frame */}
               <div className="absolute inset-0 border border-gold/15 pointer-events-none" />
               <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-gold/20 pointer-events-none" />
             </div>
@@ -65,7 +64,6 @@ export default function Philosophy() {
               La Dra. Zharick Tobar combina técnica avanzada y sensibilidad artística para crear resultados que realzan tu belleza natural, respetando siempre la armonía y proporciones únicas de cada rostro.
             </p>
 
-            {/* Separator */}
             <div className="flex items-center gap-4 mb-10">
               <span className="h-px w-8 bg-gold/40" />
               <span className="font-inter text-gold/50 text-[9px] tracking-[0.3em] uppercase">Dra. Zharick Tobar</span>
