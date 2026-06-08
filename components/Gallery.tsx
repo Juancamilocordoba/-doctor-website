@@ -7,7 +7,7 @@ const galleryItems: GalleryItem[] = [
   {
     common: 'Aumento de Labios',
     binomial: 'Rellenos & Perfilado',
-    photo: { url: '/images/labios-resultado.jpeg', text: 'Resultado aumento de labios', pos: 'center top', by: 'Medicina Estética' },
+    photo: { url: '/images/antes-despues-labios-1.jpg.jpeg', text: 'Resultado aumento de labios', pos: 'center top', by: 'Medicina Estética' },
   },
   {
     common: 'Toxina para Bruxismo',

@@ -62,10 +62,10 @@ const categories = [
     tagline: 'Harmonía y proporción en cada detalle',
     description: 'Ácido hialurónico de última generación para perfilar, definir y armonizar los rasgos del rostro con resultados absolutamente naturales.',
     services: [
-      { name: 'Aumento de Labios',    tech: 'Ácido Hialurónico',     price: '$1.200.000',     desc: 'Volumen y definición natural para tus labios. Resultados inmediatos y duraderos.',                                              image: '/images/antes-despues-labios.jpeg' },
-      { name: 'Proyección de Mentón', tech: 'Relleno con AH',        price: '$1.200.000',     desc: 'Perfilado de mentón sin cirugía para un rostro más armonioso y proporcionado.',                                               image: '/images/antes-despues-menton-1.jpg' },
+      { name: 'Aumento de Labios',    tech: 'Ácido Hialurónico',     price: '$1.200.000',     desc: 'Volumen y definición natural para tus labios. Resultados inmediatos y duraderos.',                                              image: '/images/antes-despues-labios-1.jpg.jpeg' },
+      { name: 'Proyección de Mentón', tech: 'Relleno con AH',        price: '$1.200.000',     desc: 'Perfilado de mentón sin cirugía para un rostro más armonioso y proporcionado.',                                               image: '/images/antes-despues-menton-1.jpg.png' },
       { name: 'Relleno de Ojeras',    tech: 'Ácido Hialurónico',     price: '$1.200.000',     desc: 'Revitaliza la mirada. Trata ojeras y surcos con ácido hialurónico de alta precisión.',                                        image: 'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=600&auto=format&fit=crop&q=80' },
-      { name: 'Rinomodelación',       tech: 'Sin cirugía',           price: '$1.200.000',     desc: 'Corrección estética de la nariz con rellenos. Sin quirófano, sin recuperación.',                                             image: '/images/antes-despues-menton-2.jpg' },
+      { name: 'Rinomodelación',       tech: 'Sin cirugía',           price: '$1.200.000',     desc: 'Corrección estética de la nariz con rellenos. Sin quirófano, sin recuperación.',                                             image: '/images/antes-despues-rinomodelacion-1.jpg.png' },
     ],
   },
   {
