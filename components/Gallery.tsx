@@ -12,17 +12,17 @@ const galleryItems: GalleryItem[] = [
   {
     common: 'Toxina para Bruxismo',
     binomial: 'Neuromoduladores',
-    photo: { url: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&auto=format&fit=crop&q=80', text: 'Toxina para bruxismo', pos: 'center 20%', by: 'Medicina Estética' },
+    photo: { url: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&auto=format&fit=crop&q=80', text: 'Toxina para bruxismo', pos: 'center 25%', by: 'Medicina Estética' },
   },
   {
     common: 'Proyección de Mentón',
     binomial: 'Rellenos & Perfilado',
-    photo: { url: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&auto=format&fit=crop&q=80', text: 'Proyección de mentón', pos: '50% 30%', by: 'Medicina Estética' },
+    photo: { url: 'https://images.unsplash.com/photo-1526045431048-f857369baa09?w=600&auto=format&fit=crop&q=80', text: 'Proyección de mentón', pos: 'center 20%', by: 'Medicina Estética' },
   },
   {
     common: 'Relleno de Ojeras',
     binomial: 'Rellenos & Perfilado',
-    photo: { url: 'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=600&auto=format&fit=crop&q=80', text: 'Relleno de ojeras', pos: 'center', by: 'Medicina Estética' },
+    photo: { url: 'https://images.unsplash.com/photo-1512484776495-a09d92e87c3b?w=600&auto=format&fit=crop&q=80', text: 'Relleno de ojeras', pos: 'center 30%', by: 'Medicina Estética' },
   },
   {
     common: 'Rinomodelación',
@@ -32,7 +32,7 @@ const galleryItems: GalleryItem[] = [
   {
     common: 'Toxina Botulínica',
     binomial: 'Neuromoduladores',
-    photo: { url: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&auto=format&fit=crop&q=80', text: 'Toxina botulínica', pos: 'center 15%', by: 'Medicina Estética' },
+    photo: { url: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&auto=format&fit=crop&q=80', text: 'Toxina botulínica', pos: 'center 15%', by: 'Medicina Estética' },
   },
   {
     common: 'Bioestimulador de Colágeno',
@@ -42,12 +42,12 @@ const galleryItems: GalleryItem[] = [
   {
     common: 'Hidratación NCTF',
     binomial: 'Hidratación & Regeneración',
-    photo: { url: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&auto=format&fit=crop&q=80', text: 'Hidratación NCTF', pos: 'center', by: 'Medicina Estética' },
+    photo: { url: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&auto=format&fit=crop&q=80', text: 'Hidratación NCTF', pos: 'center 20%', by: 'Medicina Estética' },
   },
   {
     common: 'Polinucleótidos',
     binomial: 'Hidratación & Regeneración',
-    photo: { url: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&auto=format&fit=crop&q=80', text: 'Polinucleótidos PDRN', pos: 'center', by: 'Medicina Estética' },
+    photo: { url: 'https://images.unsplash.com/photo-1590439471364-192aa70c0b53?w=600&auto=format&fit=crop&q=80', text: 'Polinucleótidos PDRN', pos: 'center 25%', by: 'Medicina Estética' },
   },
 ]
 

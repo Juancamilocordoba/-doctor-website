@@ -29,6 +29,31 @@ const HorizonServicesIntro = dynamic(
   }
 )
 
+// ─── Category icons ────────────────────────────────────────────────────────
+const CategoryIcons: Record<string, React.ReactElement> = {
+  rellenos: (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-gold/70">
+      <path d="M12 2C12 2 5 10.5 5 15a7 7 0 0014 0c0-4.5-7-13-7-13z"/>
+    </svg>
+  ),
+  neuro: (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-gold/70">
+      <polygon points="13,2 4,13 12,13 11,22 20,11 12,11"/>
+    </svg>
+  ),
+  bio: (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-gold/70">
+      <path d="M12 2L20.5 7v10L12 22 3.5 17V7z"/>
+    </svg>
+  ),
+  hidra: (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-gold/70">
+      <path d="M2 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/>
+      <path d="M2 17c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/>
+    </svg>
+  ),
+}
+
 // ─── Service data ──────────────────────────────────────────────────────────
 const categories = [
   {
@@ -37,10 +62,10 @@ const categories = [
     tagline: 'Harmonía y proporción en cada detalle',
     description: 'Ácido hialurónico de última generación para perfilar, definir y armonizar los rasgos del rostro con resultados absolutamente naturales.',
     services: [
-      { name: 'Aumento de Labios',    tech: 'Ácido Hialurónico',     price: '$1.200.000',     desc: 'Volumen y definición natural para tus labios. Resultados inmediatos y duraderos.',                                              image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&auto=format&fit=crop&q=80' },
-      { name: 'Proyección de Mentón', tech: 'Relleno con AH',        price: '$1.200.000',     desc: 'Perfilado de mentón sin cirugía para un rostro más armonioso y proporcionado.',                                               image: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&auto=format&fit=crop&q=80' },
-      { name: 'Relleno de Ojeras',    tech: 'Ácido Hialurónico',     price: '$1.200.000',     desc: 'Elimina el cansancio y revitaliza la mirada con un tratamiento profundo y preciso.',                                          image: 'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=600&auto=format&fit=crop&q=80' },
-      { name: 'Rinomodelación',       tech: 'Sin cirugía',           price: '$1.200.000',     desc: 'Corrección estética de la nariz con rellenos. Sin quirófano, sin recuperación.',                                             image: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600&auto=format&fit=crop&q=80' },
+      { name: 'Aumento de Labios',    tech: 'Ácido Hialurónico',     price: '$1.200.000',     desc: 'Volumen y definición natural para tus labios. Resultados inmediatos y duraderos.',                                              image: '/images/antes-despues-labios.jpeg' },
+      { name: 'Proyección de Mentón', tech: 'Relleno con AH',        price: '$1.200.000',     desc: 'Perfilado de mentón sin cirugía para un rostro más armonioso y proporcionado.',                                               image: '/images/antes-despues-menton-1.jpg' },
+      { name: 'Relleno de Ojeras',    tech: 'Ácido Hialurónico',     price: '$1.200.000',     desc: 'Revitaliza la mirada. Trata ojeras y surcos con ácido hialurónico de alta precisión.',                                        image: 'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=600&auto=format&fit=crop&q=80' },
+      { name: 'Rinomodelación',       tech: 'Sin cirugía',           price: '$1.200.000',     desc: 'Corrección estética de la nariz con rellenos. Sin quirófano, sin recuperación.',                                             image: '/images/antes-despues-menton-2.jpg' },
     ],
   },
   {
@@ -49,8 +74,8 @@ const categories = [
     tagline: 'Movimiento natural, expresión auténtica',
     description: 'Toxina botulínica aplicada con precisión para suavizar líneas de expresión manteniendo la naturalidad y autenticidad de tu rostro.',
     services: [
-      { name: 'Toxina Botulínica',    tech: 'Tercio superior · Zona única', price: 'Desde $400.000', desc: 'Suaviza líneas de expresión preservando la naturalidad. Efecto preventivo y correctivo.',                                image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&auto=format&fit=crop&q=80' },
-      { name: 'Toxina para Bruxismo', tech: 'Relajación mandibular',        price: '$890.000',       desc: 'Alivia el apretamiento involuntario de mandíbula y mejora el contorno facial inferior.',                                image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&auto=format&fit=crop&q=80' },
+      { name: 'Toxina Botulínica',    tech: 'Tercio superior · Zona única', price: 'Desde $400.000', desc: 'Suaviza líneas de expresión preservando la naturalidad. Efecto preventivo y correctivo.',                                image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&auto=format&fit=crop&q=80' },
+      { name: 'Toxina para Bruxismo', tech: 'Relajación mandibular',        price: '$890.000',       desc: 'Relaja la mandíbula y define el óvalo facial. Sin dolor, efecto inmediato.',                                           image: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&auto=format&fit=crop&q=80' },
     ],
   },
   {
@@ -59,7 +84,7 @@ const categories = [
     tagline: 'Tu piel, renovada desde adentro',
     description: 'Estimulación de la producción natural de colágeno para resultados progresivos, duraderos y completamente naturales.',
     services: [
-      { name: 'Bioestimulador de Colágeno', tech: 'Radiesse · Sculptra', price: 'Desde $2.600.000', desc: 'Estimula el colágeno propio de tu piel para restaurar firmeza, volumen y juventud de forma gradual y duradera.', image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&auto=format&fit=crop&q=80' },
+      { name: 'Bioestimulador de Colágeno', tech: 'Radiesse · Sculptra', price: 'Desde $2.600.000', desc: 'Estimula tu propio colágeno. Firmeza, volumen y juventud de forma gradual.',                                        image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&auto=format&fit=crop&q=80' },
     ],
   },
   {
@@ -68,8 +93,8 @@ const categories = [
     tagline: 'Profundidad e intensidad para tu piel',
     description: 'Tratamientos de última generación que restauran la hidratación, luminosidad y vitalidad de la piel desde adentro.',
     services: [
-      { name: 'Hidratación NCTF',  tech: 'Cóctel vitamínico · AH',    price: '$650.000', desc: 'Cóctel de vitaminas y ácido hialurónico que restaura luminosidad, textura e hidratación profunda.', image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&auto=format&fit=crop&q=80' },
-      { name: 'Polinucleótidos',   tech: 'PDRN · Regeneración celular', price: '$750.000', desc: 'Biomoléculas de alta pureza para regenerar y revitalizar la piel. Efectos anti-edad y reparadores.',   image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&auto=format&fit=crop&q=80' },
+      { name: 'Hidratación NCTF',  tech: 'Cóctel vitamínico · AH',    price: '$650.000', desc: 'Vitaminas + AH que restauran luminosidad, textura e hidratación desde adentro.',                        image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&auto=format&fit=crop&q=80' },
+      { name: 'Polinucleótidos',   tech: 'PDRN · Regeneración celular', price: '$750.000', desc: 'Biomoléculas que regeneran y reparan la piel. Efecto antienvejecimiento profundo.',                       image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&auto=format&fit=crop&q=80' },
     ],
   },
 ]
@@ -200,7 +225,10 @@ export default function Services() {
                   <div className="flex gap-5 items-start">
                     <div className="w-0.5 h-14 bg-gold mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-inter text-gold text-[9px] tracking-[0.35em] uppercase mb-2">{cat.tag}</p>
+                      <div className="flex items-center gap-2 mb-2">
+                        {CategoryIcons[cat.id]}
+                        <p className="font-inter text-gold text-[9px] tracking-[0.35em] uppercase">{cat.tag}</p>
+                      </div>
                       <p className="font-cormorant italic text-ink leading-tight mb-3" style={{ fontSize: 'clamp(20px, 2.8vw, 30px)' }}>
                         {cat.tagline}
                       </p>
